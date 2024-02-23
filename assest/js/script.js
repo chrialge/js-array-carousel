@@ -1,4 +1,4 @@
-console.log("ciao")
+
 
 const listImage =[
     "01.webp",
@@ -10,13 +10,54 @@ const listImage =[
 const slides = document.querySelector('.slides')
 let activeImage = 0
 
+const prevElement = document.querySelector('.prev');
+const nextElement = document.querySelector('.next');
+
+
 for (let i = 0; i < listImage.length; i++) {
     const slide = listImage[i];
-    console.log(slide)
+
     const imageMarkup = `
     <img class="${i == activeImage ? 'active' : '' }" src="./assest/img/${slide}" alt="">
     `
-    console.log(imageMarkup);
+
 
     slides.innerHTML += ('beforeend', imageMarkup)
 }
+// constante array con dentro tutte le immagini
+
+const imageElement = document.querySelectorAll('img')
+
+prevElement.addEventListener('click', function(e) {
+    e.preventDefault();
+
+
+
+    activeImage--
+    if(activeImage < 0){
+        activeImage = imageElement.length - 1;
+    }
+
+    const image = document.querySelector('img.active')
+    image.classList.remove('active')
+
+ 
+    imageElement[activeImage].classList.add('active');
+
+}
+)
+console.log(listImage.lenght)
+nextElement.addEventListener('click', function(e) {
+    e.preventDefault();
+
+
+    activeImage++;
+    if(activeImage > imageElement.length - 1){
+        activeImage = 0;
+    }
+    const image = document.querySelector('img.active');
+    image.classList.remove('active');
+
+    imageElement[activeImage].classList.add('active');
+}
+)
