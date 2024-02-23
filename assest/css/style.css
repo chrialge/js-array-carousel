@@ -1,3 +1,8 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 body{
     background-color: green;
     display: flex;
@@ -8,19 +13,67 @@ body{
 }
 
 .container{
-    max-width: 800px;
+    max-width: 900px;
     width: 80%;
     position: relative;
     .slides{
+        margin: 0;
+        padding: 0;
         
         & img{
             width: 100%;
-            height: 400px;
+            height: 500px;
             object-fit:cover;
             object-position: center;
+            display: block;
         }
         img:not(.active){
             display: none;
+        }
+    }
+    .thumbnails{
+        position: absolute;
+        top: 0;
+        right: 0;
+        width:  250px;
+        height: 100%;
+        & .card-thumbnails{
+            width: 100%;
+            height: 100%;
+            height: calc(100% / 5);
+            object-fit:cover;
+            object-position: center;
+            display: block;
+            position: relative;
+            > img{
+                height: 100%;
+                width: 100%;
+                object-fit:cover;
+                object-position: center;
+                
+            }
+            & .container-overlay > .overlay{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: black;
+                opacity: 0.6;
+                z-index: 1;
+            }
+            
+        }
+        & .image-thumbnails:hover .overlay{
+            opacity: 0;
+            z-index: 0;
+
+        }
+        .image-thumbnails:hover {
+            position: relative;
+            z-index: 2;
+            border: 2px solid yellow;
+
         }
     }
     .actions{

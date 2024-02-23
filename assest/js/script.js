@@ -18,20 +18,20 @@ for (let i = 0; i < listImage.length; i++) {
     const slide = listImage[i];
 
     const imageMarkup = `
-    <img class="${i == activeImage ? 'active' : '' }" src="./assest/img/${slide}" alt="">
+    <img class="${i == activeImage ? 'active' : '' } image-central" src="./assest/img/${slide}" alt="">
     `
 
 
-    slides.innerHTML += ('beforeend', imageMarkup)
+    slides.innerHTML += (imageMarkup)
 }
 // constante array con dentro tutte le immagini
 
-const imageElement = document.querySelectorAll('img')
+const imageElement = document.querySelectorAll('.image-central')
 
 prevElement.addEventListener('click', function(e) {
     e.preventDefault();
-
-
+    console.log(activeImage < 0);
+    console.log(imageElement)
 
     activeImage--
     if(activeImage < 0){
