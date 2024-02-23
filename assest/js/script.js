@@ -30,8 +30,6 @@ const imageElement = document.querySelectorAll('.image-central')
 
 prevElement.addEventListener('click', function(e) {
     e.preventDefault();
-    console.log(activeImage < 0);
-    console.log(imageElement)
 
     activeImage--
     if(activeImage < 0){
