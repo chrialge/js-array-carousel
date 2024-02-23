@@ -40,6 +40,7 @@ body{
             border-radius: 50%;
             opacity: 0.3;
             padding: 10px;
+            border: none;
         }
         .prev:hover, .next:hover{
             opacity: 1;
