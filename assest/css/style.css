@@ -31,51 +31,84 @@ body{
             display: none;
         }
     }
-    .thumbnails{
+    .container-thumbnails{
+        background-color: transparent;
+        z-index: 4;
         position: absolute;
         top: 0;
         right: 0;
         width:  250px;
         height: 100%;
-        & .card-thumbnails{
+
+        .thumbnails{
             width: 100%;
             height: 100%;
-            height: calc(100% / 5);
-            object-fit:cover;
-            object-position: center;
-            display: block;
-            position: relative;
-            > img{
-                height: 100%;
+            & .card-thumbnails{
+                
                 width: 100%;
+                height: 100%;
+                height: calc(100% / 5);
                 object-fit:cover;
                 object-position: center;
+                display: block;
+                position: relative;
+                > img{
+                    height: 100%;
+                    width: 100%;
+                    object-fit:cover;
+                    object-position: center;
+                    
+                }
+                .current-image{
+                    position: relative;
+                    z-index: 2;
+                    border: 2px solid yellow;
+                }
+                & .container-overlay > .overlay{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: black;
+                    opacity: 0.6;
+                    z-index: 1;
+                }
+
+                &:hover .image-thumbnails {
+                    position: relative;
+                    z-index: 2;
+                    border: 2px solid gray;
+        
+                }
                 
             }
-            & .container-overlay > .overlay{
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: black;
-                opacity: 0.6;
-                z-index: 1;
-            }
-            .image-thumbnails:hover .overlay{
-                opacity: 0;
-                z-index: 0;
-    
-            }
-            .image-thumbnails:hover {
-                position: relative;
-                z-index: 8;
-                border: 2px solid yellow;
-    
+            & .actions{
+
+                .prev-thumbnails, .next-thumbnails{
+                    z-index: 3;
+                    margin: 10px;
+                    background-color: lightgray;
+                    font-size: 20px;
+                    border-radius: 50%;
+                    opacity: 0.3;
+                    padding: 10px;
+                    border: none;
+                
+                    display: block;
+                }
+                .prev-thumbnails:hover, .next-thumbnails:hover{
+                    opacity: 1;
+                    
+                }
             }
         }
-
+        &:hover .thumbnails{
+            display: block; 
+        }
+ 
     }
+    
     .actions{
         position: absolute;
         top: 0;
@@ -85,7 +118,7 @@ body{
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-    
+        
         .prev, .next{
             margin: 10px;
             background-color: lightgray;
@@ -94,6 +127,7 @@ body{
             opacity: 0.3;
             padding: 10px;
             border: none;
+
         }
         .prev:hover, .next:hover{
             opacity: 1;
