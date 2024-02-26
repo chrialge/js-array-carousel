@@ -1,3 +1,4 @@
+/* region common */
 *{
     padding: 0;
     margin: 0;
@@ -16,12 +17,15 @@ body{
 .display_none{
     display: none!important;
 }
+/* end region common */
 
-
+/*region container */
 .container{
     max-width: 900px;
     width: 80%;
     position: relative;
+
+    /* region slides */
     .slides{
         margin: 0;
         padding: 0;
@@ -37,6 +41,9 @@ body{
             display: none;
         }
     }
+    /* endregion slides */
+
+    /* region container-thumbnails */
     .container-thumbnails{
         background-color: transparent;
         z-index: 4;
@@ -88,6 +95,8 @@ body{
 
                 
             }
+
+            /* region actions-thumbnails */
             & .actions-thumbnails{
                 z-index: 6;
                 width: 100%;
@@ -111,22 +120,28 @@ body{
                     border: none;
                     box-shadow: 1px 1px 5px white;
                 }
+
+                /* in stato di hover suio tasti di thumbnails */
                 .prev-thumbnails:hover, .next-thumbnails:hover{
                     opacity: 1;
                 }
             }
+            /* endegion actions-thumbnails */
+
         }
+        /* in stato di hover thumbnails diventa visibile */
         &:hover .thumbnails{
             visibility: visible;
             
         }
         
     }
+    /* endregion container-thumbnails */
 
     
 
-    }
     
+    /* region actions */
     .actions{
         position: absolute;
         top: 0;
@@ -149,7 +164,13 @@ body{
             border: none;
             box-shadow: 1px 1px 5px white;
         }
+
+        /* in stato di hover sui actions */
         .prev:hover, .next:hover{
             opacity: 1;
         }
     }
+    /* endregion actions */
+
+}
+/* endregion container */

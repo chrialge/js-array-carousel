@@ -78,10 +78,10 @@ prevElement.addEventListener('click', function(){
     // variabile che richima l'immagine con al classe active
     const image = document.querySelector('img.active');
 
-    // toglie la class active
+    // toglie la class active da image
     image.classList.remove('active');
 
-    // aggiunge la class add active in base all indice che e il valore di active image
+    // aggiunge la classe active in base all"indice che e il valore di activeImage al image
     imageElement[activeImage].classList.add('active');
 
     // variabile che richiama l'elemento con la classe current-image
@@ -90,6 +90,7 @@ prevElement.addEventListener('click', function(){
     // toglie la classe current current-image da image-thumbnails
     imageThumbnails.classList.remove('current-image');
 
+    // aggiunge la classe current-image in base all'indice che e il valore di activeImage image al image-thumbnails
     thumbnailsElement[activeImage].classList.add('current-image');
 
 })
@@ -99,79 +100,123 @@ prevElement.addEventListener('click', function(){
     
 
 
-
+// evento che quando si clicca sul tasto in giu ma all'immagine dopo
 nextElement.addEventListener('click', function(e) {
     e.preventDefault();
 
-
+    // variabile contatore che inrementa
     activeImage++;
+
+    //condizione se activeImage superiore alla lunghezza dell'array meno 1 il suo valore torna a 0
     if(activeImage > imageElement.length - 1){
         activeImage = 0;
     };
+
+    // variabile che richima l'immagine con al classe active
     const image = document.querySelector('img.active');
+
+    // toglie la class active da image
     image.classList.remove('active');
 
+    // aggiunge la classe active in base all"indice che e il valore di activeImage al image
     imageElement[activeImage].classList.add('active');
 
+    // variabile che richiama l'elemento con la classe current-image
     const imageThumbnails = document.querySelector('img.current-image');
+
+    // toglie la classe current current-image da image-thumbnails
     imageThumbnails.classList.remove('current-image');
 
+    // aggiunge la classe current-image in base all'indice che e il valore di activeImage image al image-thumbnails
    thumbnailsElement[activeImage].classList.add('current-image');
 }
 )
 
 // bonus 2
 
-console.log(actionThumbnailsMarkup);
+
 const nextThumbnails = document.querySelector('.next-thumbnails')
 const prevThumbnails = document.querySelector('.prev-thumbnails')
-console.log(nextThumbnails, prevThumbnails)
+
+// evento che quando si clicca sul tasto in giu ma all'immagine dopo
 nextThumbnails.addEventListener('click', function(e){
     e.preventDefault;
 
+    // variabile contatore che incrementa
     activeImage++;
+
+    // condizione se activeImage e superiore della lunghezza dell array meno 1 il valore activeImage torna 0
     if(activeImage > imageElement.length - 1){
         activeImage = 0;
     };
     
+    // variabile che richima l'immagine con al classe active
     const image = document.querySelector('img.active');
+
+    // toglie la class active da image
     image.classList.remove('active');
 
+    // aggiunge la classe active in base all"indice che e il valore di activeImage al image
     imageElement[activeImage].classList.add('active');
 
+    // variabile che richiama l'elemento con la classe current-image
     const imageThumbnails = document.querySelector('img.current-image');
+
+    // toglie la classe current current-image da image-thumbnails
     imageThumbnails.classList.remove('current-image');
 
+    // aggiunge la classe current-image in base all'indice che e il valore di activeImage image al image-thumbnails
    thumbnailsElement[activeImage].classList.add('current-image');
     
 })
+
+// evento che quando si clicca sul tasto in su ma all'immagine precedente
 prevThumbnails.addEventListener('click', function(e){
     e.preventDefault;
 
+    // variabile contatore che decrementa
     activeImage--;
+    // condizione se activeImage minore di sotto il suo valore diventa la lunghezza dell'array meno 1
     if(activeImage < 0){
         activeImage = imageElement.length - 1;
     };
 
+    // variabile che richima l'immagine con al classe active
     const image = document.querySelector('img.active');
+
+    // toglie la class active da image
     image.classList.remove('active');
 
-    
+    // aggiunge la classe active in base all"indice che e il valore di activeImage al image
     imageElement[activeImage].classList.add('active');
 
+    // variabile che richiama l'elemento con la classe current-image
     const imageThumbnails = document.querySelector('img.current-image');
+
+    // toglie la classe current current-image da image-thumbnails
     imageThumbnails.classList.remove('current-image');
 
+    // aggiunge la classe active in base all"indice che e il valore di activeImage al image
     thumbnailsElement[activeImage].classList.add('current-image');
 })
+
+// variabile che richiama l'elemento con la classe actions
 const actions = document.querySelector('.actions')
+
+// quando il mouse e sopra a thumbnails inizia questo evento
 thumbnails.addEventListener('mouseover', function(e){
     e.preventDefault();
+
+    // aggiunge la classe display_none a actions
     actions.classList.add('display_none')
     console.log('over')
 })
+
+// quando il mouse e fuori da thumbnails inizia questo evento
 thumbnails.addEventListener('mouseout', function(e){
     e.preventDefault();
+
+    // toglie la class display-none da actions
     actions.classList.remove('display_none')
     console.log('out')
 })
